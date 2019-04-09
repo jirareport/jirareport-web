@@ -1,0 +1,76 @@
+@import "../../../style/colors";
+
+.react-select {
+  &__wrapper {
+    margin-bottom: 24px;
+
+    &--spacing {
+      margin: 1.5rem 0;
+    }
+  }
+
+  &__input {
+    input {
+      box-shadow: none !important;
+      height: 13px !important;
+    }
+  }
+
+  &__label {
+    &--focused {
+      color: $primary-color;
+    }
+
+    &--hidden {
+      opacity: 0;
+    }
+  }
+
+  &__dropdown-indicator {
+    &--focused {
+      color: $primary-color;
+    }
+  }
+
+  &__error-label {
+    position: relative;
+    min-height: 18px;
+    display: block;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  &__menu-list {
+    padding: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &__option {
+    background-color: #FFF;
+    color: #444;
+    padding: 14px 16px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__value-container {
+    &--is-multi {
+      min-height: 56px;
+
+      .chip {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+    }
+  }
+
+  &__menu-notice {
+    &--no-options, &--loading {
+      margin-top: 5px;
+    }
+  }
+
+}

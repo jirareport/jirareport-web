@@ -1,0 +1,64 @@
+@import "../../../style/colors";
+
+.SingleDatePicker, .SingleDatePickerInput, .DateInput {
+  width: 100%;
+}
+
+.CalendarDay {
+  &__selected {
+    background-color: $primary-color;
+    border: 0;
+
+    &:active, &:hover {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.date-picker {
+  &__label {
+    &--focused {
+      color: $primary-color !important;
+    }
+  }
+}
+
+.CalendarMonth_table {
+  td {
+    padding: 7px;
+  }
+
+  tr {
+    border-bottom: unset;
+  }
+}
+
+.DateInput {
+  &_input {
+    color: #000;
+    font-weight: 400;
+  }
+
+  &_fang {
+    top: 56px !important
+  }
+}
+
+.SingleDatePicker {
+  &Input {
+    &_calendarIcon {
+      position: absolute;
+      top: 8px;
+      right: -10px;
+
+      &:focus {
+        color: $primary-color;
+        background-color: unset;
+      }
+    }
+  }
+
+  &_picker {
+    z-index: 99999999999999999;
+  }
+}

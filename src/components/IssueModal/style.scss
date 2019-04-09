@@ -1,0 +1,13 @@
+.issue-modal {
+  &__efficiency-item {
+    & + & {
+      margin-top: 5px;
+    }
+
+    &__label {
+      font-weight: 500;
+      font-size: 16px;
+      margin-right: 5px;
+    }
+  }
+}

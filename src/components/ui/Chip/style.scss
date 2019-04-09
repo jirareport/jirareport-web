@@ -1,0 +1,13 @@
+.chip {
+  &__container {
+    margin-bottom: 0;
+  }
+
+  &__close {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 8px;
+  }
+}

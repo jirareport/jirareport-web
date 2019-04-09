@@ -1,0 +1,13 @@
+.loading {
+  &__wrapper {
+    text-align: center;
+
+    &--small {
+      padding: 15px 0;
+    }
+
+    &--big {
+      padding: 50px 0;
+    }
+  }
+}

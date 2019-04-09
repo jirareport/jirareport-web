@@ -1,0 +1,7 @@
+.list-holidays {
+  &__actions {
+    * + * {
+      margin-left: 10px;
+    }
+  }
+}

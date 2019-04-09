@@ -1,0 +1,20 @@
+.card {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.dropdown-content {
+  li {
+    button {
+      font-size: 16px;
+      color: #444;
+      display: block;
+      line-height: 22px;
+      padding: 14px 16px;
+      width: 100%;
+      text-align: left;
+    }
+  }
+}

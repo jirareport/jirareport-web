@@ -1,0 +1,11 @@
+.histogram {
+  &__percentiles {
+    display: flex;
+    justify-content: space-between;
+    padding: 3em 3em 1em 3em;
+
+    & > {
+      flex: 1;
+    }
+  }
+}

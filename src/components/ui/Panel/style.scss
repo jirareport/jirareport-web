@@ -1,0 +1,42 @@
+@import "../../../style/colors";
+
+.panel {
+  &__header {
+    margin: 0;
+
+    &-container {
+      border-bottom: 1px solid $trace-color;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    small {
+      color: #9e9e9e;
+      font-size: 70%;
+    }
+  }
+
+  // TODO: make it better (transitions)
+  &__body {
+    &--visible {
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__actions {
+    border-top: 1px solid $trace-color;
+    padding: 15px;
+  }
+
+  &__content {
+    padding: 25px;
+  }
+}
+
+.card-panel {
+  padding: unset;
+}

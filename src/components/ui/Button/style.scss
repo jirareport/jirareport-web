@@ -1,0 +1,16 @@
+.btn {
+  &__block {
+    width: 100%;
+  }
+
+  &-flat:hover {
+    background-color: unset;
+  }
+
+  &__link {
+    background: none !important;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+}

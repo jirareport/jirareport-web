@@ -1,0 +1,15 @@
+.login {
+  &__container {
+    margin-top: 5%;
+  }
+
+  &-panel {
+    &__header {
+      margin: 0;
+
+      &-container {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
