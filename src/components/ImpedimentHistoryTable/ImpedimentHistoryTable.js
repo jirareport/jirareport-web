@@ -2,13 +2,9 @@ import React from "react";
 import * as PropTypes from "prop-types";
 import { Table } from "components/ui";
 
-const ChangelogTable = ({ changelog }) =>
-    <Table data={changelog}
+const ImpedimentHistoryTable = ({ impedimentHistory }) =>
+    <Table data={impedimentHistory}
            rows={[
-               {
-                   label: "Coluna",
-                   value: "to"
-               },
                {
                    label: "Início",
                    value: "startDate"
@@ -24,8 +20,8 @@ const ChangelogTable = ({ changelog }) =>
            ]}
            emptyMessage="Nenhuma informação encontrada."/>;
 
-ChangelogTable.propTypes = {
-    changelog: PropTypes.array
+ImpedimentHistoryTable.propTypes = {
+    impedimentHistory: PropTypes.array
 };
 
-export default ChangelogTable;
+export default ImpedimentHistoryTable;

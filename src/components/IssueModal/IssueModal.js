@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import { HttpService } from "services";
 
 import { Button, Preloader, Table } from "components/ui";
-import { ChangelogTable } from "components";
+import { ChangelogTable, ImpedimentHistoryTable } from "components";
 import ReactModal from "react-modal";
 
 import "./style.scss";
@@ -125,6 +125,13 @@ class IssueModal extends Component {
                             <span
                                 className="issue-modal__efficiency-item__value">{issue.pctEfficiency.toFixed(2)}%</span>
                         </div>
+                    </>}
+
+                    {board.feature.impediment && <>
+                        <h5 className="modal__section-header modal__section-header--space-top">
+                            Histórico de Impedimentos
+                        </h5>
+                        <ImpedimentHistoryTable impedimentHistory={issue.impedimentHistory}/>
                     </>}
 
                 </div>

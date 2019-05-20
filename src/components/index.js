@@ -18,6 +18,7 @@ import AvgColumnTimeTable from "components/AvgColumnTimeTable/AvgColumnTimeTable
 import ChangelogTable from "components/ChangelogTable/ChangelogTable";
 import EstimateIssueTable from "components/EstimateIssueTable/EstimateIssueTable";
 import EstimateIssueModal from "components/EstimateIssueModal/EstimateIssueModal";
+import ImpedimentHistoryTable from "components/ImpedimentHistoryTable/ImpedimentHistoryTable";
 
 export {
     Footer,
@@ -40,5 +41,6 @@ export {
     AvgColumnTimeTable,
     ChangelogTable,
     EstimateIssueTable,
-    EstimateIssueModal
+    EstimateIssueModal,
+    ImpedimentHistoryTable
 };
