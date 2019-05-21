@@ -163,7 +163,6 @@ class EstimateIssueTable extends Component {
                            {
                                value: "impedimentTime",
                                label: "Tempo Em Impedimento",
-                               small: true,
                                sort: true
                            },
                            {
@@ -214,6 +213,7 @@ class EstimateIssueTable extends Component {
             />
 
             <EstimateIssueModal estimate={estimateDetailed}
+                                board={board}
                                 handleClose={this.closeDetailsModal}/>
         </Panel>;
     }

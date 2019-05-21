@@ -8,7 +8,7 @@ import { AuthService, NotificationService } from "services";
 
 import { Button, Col, InputField, Panel, Row } from "components/ui";
 
-import "./style.scss";
+import "./Login.scss";
 
 class Login extends Component {
     state = {

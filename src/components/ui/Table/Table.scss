@@ -1,0 +1,32 @@
+.table {
+  &__actions {
+    & > * {
+      margin-left: 10px;
+
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+table th {
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 2;
+  background: #FFF;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 500;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(212, 212, 212, 0.7);
+  }
+}

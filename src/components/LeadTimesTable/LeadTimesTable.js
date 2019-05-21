@@ -1,13 +1,15 @@
 import React from "react";
-import * as PropTypes from "prop-types";
+
+import PropTypes from "prop-types";
+
 import { Table } from "components/ui";
 
-const ChangelogTable = ({ changelog }) =>
-    <Table data={changelog}
+const LeadTimesTable = ({ leadTimes }) =>
+    <Table data={leadTimes}
            rows={[
                {
-                   label: "Coluna",
-                   value: "to"
+                   label: "Nome",
+                   value: "name"
                },
                {
                    label: "Início",
@@ -21,11 +23,10 @@ const ChangelogTable = ({ changelog }) =>
                    label: "Lead Time",
                    value: "leadTime"
                }
-           ]}
-           emptyMessage="Nenhuma informação encontrada."/>;
+           ]}/>;
 
-ChangelogTable.propTypes = {
-    changelog: PropTypes.array
+LeadTimesTable.propTypes = {
+    leadTimes: PropTypes.array.isRequired
 };
 
-export default ChangelogTable;
+export default LeadTimesTable;

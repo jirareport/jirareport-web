@@ -18,6 +18,9 @@ import AvgColumnTimeTable from "components/AvgColumnTimeTable/AvgColumnTimeTable
 import ChangelogTable from "components/ChangelogTable/ChangelogTable";
 import EstimateIssueTable from "components/EstimateIssueTable/EstimateIssueTable";
 import EstimateIssueModal from "components/EstimateIssueModal/EstimateIssueModal";
+import ImpedimentHistoryTable from "components/ImpedimentHistoryTable/ImpedimentHistoryTable";
+import DueDateHistoryTable from "components/DueDateHistoryTable/DueDateHistoryTable";
+import LeadTimesTable from "components/LeadTimesTable/LeadTimesTable";
 
 export {
     Footer,
@@ -40,5 +43,8 @@ export {
     AvgColumnTimeTable,
     ChangelogTable,
     EstimateIssueTable,
-    EstimateIssueModal
+    EstimateIssueModal,
+    ImpedimentHistoryTable,
+    DueDateHistoryTable,
+    LeadTimesTable
 };

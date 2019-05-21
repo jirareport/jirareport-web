@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 import M from "materialize-css";
 
-import "./style.scss";
+import "./CardBoard.scss";
 
 class CardBoard extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {

@@ -3,11 +3,17 @@ import React, { Component } from "react";
 import * as PropTypes from "prop-types";
 import { HttpService } from "services";
 
-import { Button, Preloader, Table } from "components/ui";
-import { ChangelogTable } from "components";
-import ReactModal from "react-modal";
+import { Button, Preloader } from "components/ui";
+import { ChangelogTable, DueDateHistoryTable, ImpedimentHistoryTable, LeadTimesTable } from "components";
+import { Modal, ModalContent, ModalFooter, ModalHeader, ModalSection } from "components/Modal";
 
-import "./style.scss";
+import "./IssueModal.scss";
+
+const EfficiencyItem = ({ label, value }) =>
+    <div className="issue-modal__efficiency-item">
+        <span className="issue-modal__efficiency-item__label">{label}:</span>
+        <span className="issue-modal__efficiency-item__value">{value}</span>
+    </div>;
 
 class IssueModal extends Component {
     state = {
@@ -49,90 +55,41 @@ class IssueModal extends Component {
         let { isOpen, board } = this.props;
         let { loading, issue } = this.state;
 
-        return <ReactModal isOpen={isOpen}
-                           onRequestClose={this.handleClose}
-                           className="modal"
-                           overlayClassName="modal-overlay">
+        return <Modal isOpen={isOpen} closeModal={this.handleClose}>
             {loading ? <>
                 <Preloader/>
             </> : <>
-                <div className="modal-header">
-                    <h5>{issue.key}</h5>
-                </div>
-                <div className="modal-content">
+                <ModalHeader title={issue.key}/>
 
-                    <h5 className="modal__section-header">Lead Time Por Coluna</h5>
-                    <ChangelogTable changelog={issue.changelog}/>
+                <ModalContent>
+                    <ModalSection title="Lead Time Por Coluna">
+                        <ChangelogTable changelog={issue.changelog}/>
+                    </ModalSection>
 
-                    {board.feature.leadTimes && <>
-                        <h5 className="modal__section-header modal__section-header--space-top">Lead Times</h5>
-                        <Table data={issue.leadTimes}
-                               rows={[
-                                   {
-                                       label: "Nome",
-                                       value: "name"
-                                   },
-                                   {
-                                       label: "Início",
-                                       value: "startDate"
-                                   },
-                                   {
-                                       label: "Fim",
-                                       value: "endDate"
-                                   },
-                                   {
-                                       label: "Lead Time",
-                                       value: "leadTime"
-                                   }
-                               ]}
-                        />
-                    </>}
+                    {board.feature.leadTimes && <ModalSection title="Lead Times">
+                        <LeadTimesTable leadTimes={issue.leadTimes}/>
+                    </ModalSection>}
 
-                    {board.feature.dueDate && <>
-                        <h5 className="modal__section-header modal__section-header--space-top">
-                            Atualizações de Estimativa
-                        </h5>
-                        <Table data={issue.dueDateHistory}
-                               rows={[
-                                   {
-                                       label: "Data de Atualização",
-                                       value: "created"
-                                   },
-                                   {
-                                       label: "Due Date",
-                                       value: "dueDate"
-                                   }
-                               ]}
-                               emptyMessage="Nenhuma informação encontrada."/>
-                    </>}
+                    {board.feature.dueDate && <ModalSection title="Atualizações de Estimativa">
+                        <DueDateHistoryTable dueDateHistory={issue.dueDateHistory}/>
+                    </ModalSection>}
 
-                    {board.feature.efficiency && <>
-                        <h5 className="modal__section-header modal__section-header--space-top">
-                            Eficiência
-                        </h5>
-                        <div className="issue-modal__efficiency-item">
-                            <span className="issue-modal__efficiency-item__label">Touch Time:</span>
-                            <span
-                                className="issue-modal__efficiency-item__value">{issue.touchTime.toFixed(2)} Horas</span>
-                        </div>
-                        <div className="issue-modal__efficiency-item">
-                            <span className="issue-modal__efficiency-item__label">Wait Time:</span>
-                            <span
-                                className="issue-modal__efficiency-item__value">{issue.waitTime.toFixed(2)} Horas</span>
-                        </div>
-                        <div className="issue-modal__efficiency-item">
-                            <span className="issue-modal__efficiency-item__label">Eficiência:</span>
-                            <span
-                                className="issue-modal__efficiency-item__value">{issue.pctEfficiency.toFixed(2)}%</span>
-                        </div>
-                    </>}
+                    {board.feature.efficiency && <ModalSection title="Eficiência">
+                        <EfficiencyItem label="Touch Time" value={`${issue.touchTime.toFixed(2)} Horas`}/>
+                        <EfficiencyItem label="Wait Time" value={`${issue.waitTime.toFixed(2)} Horas`}/>
+                        <EfficiencyItem label="Eficiência" value={`${issue.pctEfficiency.toFixed(2)}%`}/>
+                    </ModalSection>}
 
-                </div>
-                <div className="modal-footer">
+                    {board.feature.impediment && <ModalSection title="Histórico de Impedimentos">
+                        <ImpedimentHistoryTable impedimentHistory={issue.impedimentHistory}/>
+                    </ModalSection>}
+                </ModalContent>
+
+                <ModalFooter>
                     <Button onClick={this.handleClose}>Fechar</Button>
-                </div>
+                </ModalFooter>
             </>}
-        </ReactModal>;
+        </Modal>;
     }
 }
 
