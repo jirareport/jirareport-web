@@ -6,7 +6,7 @@ import moment from "moment";
 
 import { SingleDatePicker } from "react-dates";
 
-import "./style.scss";
+import "./DatePicker.scss";
 
 const datePattern = "DD/MM/YYYY";
 

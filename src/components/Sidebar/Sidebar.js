@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Col, Panel } from "components/ui";
 
-import "./style.scss";
+import "components/Sidebar/Sidebar.scss";
 
 export default ({ s, m, l, xl, items, changeTab }) => {
     const tabs = items

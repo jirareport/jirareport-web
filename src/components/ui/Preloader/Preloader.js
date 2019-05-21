@@ -2,7 +2,7 @@ import React from "react";
 
 import classnames from "classnames";
 
-import "./style.scss";
+import "./Preloader.scss";
 
 export default ({ small }) =>
     <div className={classnames("loading__wrapper", {

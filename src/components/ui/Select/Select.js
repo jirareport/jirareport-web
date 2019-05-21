@@ -8,7 +8,7 @@ import { Chip } from "components/ui";
 
 import MenuList from "./MenuList";
 
-import "./style.scss";
+import "./Select.scss";
 
 const customStyles = {
     menu: (provided) => ({

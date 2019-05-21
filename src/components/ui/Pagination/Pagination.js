@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import { Button } from "components/ui";
 
-import "./style.scss";
+import "./Pagination.scss";
 
 export default ({ data, goToPage }) => {
     const pages = Array.apply(null, { length: data.totalPages }).map(Number.call, Number);

@@ -7,9 +7,13 @@ import { Button, Preloader } from "components/ui";
 import { ChangelogTable, DueDateHistoryTable, ImpedimentHistoryTable, LeadTimesTable } from "components";
 import { Modal, ModalContent, ModalFooter, ModalHeader, ModalSection } from "components/Modal";
 
-import EfficiencyItem from "components/IssueModal/EfficiencyItem";
+import "./IssueModal.scss";
 
-import "./style.scss";
+const EfficiencyItem = ({ label, value }) =>
+    <div className="issue-modal__efficiency-item">
+        <span className="issue-modal__efficiency-item__label">{label}:</span>
+        <span className="issue-modal__efficiency-item__value">{value}</span>
+    </div>;
 
 class IssueModal extends Component {
     state = {

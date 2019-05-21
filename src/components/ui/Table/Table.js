@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.scss";
+import "./Table.scss";
 
 export default ({ data, rows, actions, emptyMessage }) => {
     if (!data || data.length === 0) {

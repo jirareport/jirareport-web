@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import ReactModal from "react-modal";
 
+import "./Modal.scss";
+
 const Modal = ({ isOpen, children, closeModal }) =>
     <ReactModal isOpen={isOpen}
                 onRequestClose={closeModal}

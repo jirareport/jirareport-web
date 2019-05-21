@@ -6,7 +6,7 @@ import queryString from "query-string";
 import { Button, Link, Pagination, Panel, Table } from "components/ui";
 import { PageHeader } from "components";
 
-import "./style.scss";
+import "./ListHolidays.scss";
 
 class ListHolidays extends Component {
     state = {

@@ -1,4 +1,4 @@
-@import "colors";
+@import "../../style/colors";
 
 .modal {
   display: block;
@@ -6,15 +6,10 @@
   background: #FFF;
 
   &__overlay {
-    @extend .modal-overlay;
-
     display: block;
     background: rgba(0, 0, 0, 0.5);
   }
 
-  &__content {
-    @extend .modal-content
-  }
 
   &__header {
     border-bottom: 1px solid $trace-color;
@@ -40,8 +35,6 @@
   }
 
   &__footer {
-    @extend .modal-footer;
-
     margin-top: 10px;
     border-top: 1px solid $trace-color;
     padding-right: 20px !important;
@@ -59,12 +52,4 @@
     }
   }
 
-}
-
-.ReactModal__Body--open {
-  overflow: hidden;
-}
-
-.swal2-popup {
-  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2)
 }

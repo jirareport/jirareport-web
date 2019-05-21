@@ -8,7 +8,7 @@ import { Button } from "components/ui";
 import BasicConfig from "./BasicConfig/BasicConfig";
 import AdvancedConfig from "./AdvancedConfig/AdvancedConfig";
 
-import "./style.scss";
+import "./EditBoard.scss";
 
 class EditBoard extends Component {
     state = {

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Chart } from "components";
 
-import "./style.scss";
+import "./Histogram.scss";
 
 export default ({ data, loading }) =>
     <Chart beginAtZero

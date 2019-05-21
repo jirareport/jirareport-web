@@ -5,7 +5,7 @@ import * as classnames from "classnames";
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "./style.scss";
+import "./DataTable.scss";
 
 export default ({ data, sortData, sortOptions, rows, actions, emptyMessage }) => {
     if (data.length === 0) {

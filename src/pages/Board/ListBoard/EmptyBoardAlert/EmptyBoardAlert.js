@@ -2,7 +2,7 @@ import React from "react";
 
 import { Col } from "components/ui";
 
-import "./style.scss";
+import "./EmptyBoardAlert.scss";
 
 export default () =>
     <Col s={12} className="center-align empty-board-alert__container">

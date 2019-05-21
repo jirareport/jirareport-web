@@ -1,0 +1,19 @@
+.modal {
+  &__overlay {
+    @extend .modal-overlay;
+  }
+
+  &__content {
+    @extend .modal-content
+  }
+
+  &__footer {
+    @extend .modal-footer;
+  }
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+

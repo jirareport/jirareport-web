@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 import { Link as RouterLink } from "react-router-dom";
 
-import "./style.scss";
+import "./Button.scss";
 
 function resolveClasses(className, flat, link, secondary, small, large, block, disabled) {
     return classnames(className, {

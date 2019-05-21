@@ -11,7 +11,7 @@ import { EditUserConfig } from "pages/UserConfig";
 import { ListIssue } from "pages/Issue";
 import { ListEstimateIssue } from "pages/EstimateIssue";
 
-import "./style.scss";
+import "./DashboardRouter.scss";
 
 export default () => <>
     <MenuAppBar/>

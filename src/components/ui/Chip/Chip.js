@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.scss";
+import "./Chip.scss";
 
 export default ({ children, close, ...others }) =>
     <div className="chip chip__container" {...others}>

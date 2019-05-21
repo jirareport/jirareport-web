@@ -5,7 +5,23 @@ import classnames from "classnames";
 
 import { Button, Preloader } from "components/ui";
 
-import "./style.scss";
+import "./Panel.scss";
+
+const PanelHeader = ({ title, small, collapsible, open, toggleOpen }) => title ?
+    <div className="panel__header-container" onClick={toggleOpen}>
+        <h5 className="panel__header">
+            {title} {small && <small>{small}</small>}
+        </h5>
+        {collapsible && <Button type="button" link onClick={toggleOpen}>
+            <i className="material-icons">{open ? "arrow_drop_down" : "arrow_drop_up"}</i>
+        </Button>}
+    </div> : null;
+
+const PanelBody = ({ children, open }) =>
+    <div className={classnames("panel__body", {
+        "panel__body--visible": open,
+        "panel__body--hidden": !open
+    })}>{children}</div>;
 
 class Panel extends Component {
     state = {
@@ -20,20 +36,6 @@ class Panel extends Component {
         }
     };
 
-    panelHeader = (title, small, collapsible) => {
-        if (title) {
-            return <div className="panel__header-container" onClick={this.toggleOpen}>
-                <h5 className="panel__header">
-                    {title} {small && <small>{small}</small>}
-                </h5>
-                {collapsible && <Button type="button" link onClick={this.toggleOpen}>
-                    <i className="material-icons">{this.state.open ? "arrow_drop_down" : "arrow_drop_up"}</i>
-                </Button>}
-            </div>;
-        }
-        return null;
-    };
-
     render() {
         const { children, title, small, actions, collapsible, className, loading, wrapper, contentClasses } = this.props;
         const { open } = this.state;
@@ -42,12 +44,14 @@ class Panel extends Component {
 
         return <>
             <div className={classnames("card-panel", className)}>
-                {this.panelHeader(title, small, collapsible)}
-                <div className={classnames("panel__body", {
-                    "panel__body--visible": open,
-                    "panel__body--hidden": !open
-                })}>
-                    {loading ? <Preloader/> : <>
+                <PanelHeader title={title}
+                             small={small}
+                             collapsible={collapsible}
+                             open={open}
+                             toggleOpen={this.toggleOpen}/>
+                <PanelBody open={open}>
+                    {loading ?
+                        <Preloader/> :
                         <Wrapper className="panel__wrapper">
                             <div className={classnames("panel__content", contentClasses)}>
                                 {children}
@@ -56,8 +60,8 @@ class Panel extends Component {
                                 {actions}
                             </div>}
                         </Wrapper>
-                    </>}
-                </div>
+                    }
+                </PanelBody>
             </div>
         </>;
     }
