@@ -163,7 +163,6 @@ class EstimateIssueTable extends Component {
                            {
                                value: "impedimentTime",
                                label: "Tempo Em Impedimento",
-                               small: true,
                                sort: true
                            },
                            {

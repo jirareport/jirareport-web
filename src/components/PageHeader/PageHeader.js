@@ -1,6 +1,6 @@
 import React from "react";
 
-import "components/PageHeader/PageHeader.scss";
+import "./PageHeader.scss";
 
 export default ({ title, small, action }) =>
     <div className="page-header__container">
