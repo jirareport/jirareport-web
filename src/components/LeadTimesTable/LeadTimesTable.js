@@ -4,9 +4,13 @@ import PropTypes from "prop-types";
 
 import { Table } from "components/ui";
 
-const ImpedimentHistoryTable = ({ impedimentHistory }) =>
-    <Table data={impedimentHistory}
+const LeadTimesTable = ({ leadTimes }) =>
+    <Table data={leadTimes}
            rows={[
+               {
+                   label: "Nome",
+                   value: "name"
+               },
                {
                    label: "Início",
                    value: "startDate"
@@ -19,11 +23,10 @@ const ImpedimentHistoryTable = ({ impedimentHistory }) =>
                    label: "Lead Time",
                    value: "leadTime"
                }
-           ]}
-           emptyMessage="Nenhuma informação encontrada."/>;
+           ]}/>;
 
-ImpedimentHistoryTable.propTypes = {
-    impedimentHistory: PropTypes.array
+LeadTimesTable.propTypes = {
+    leadTimes: PropTypes.array.isRequired
 };
 
-export default ImpedimentHistoryTable;
+export default LeadTimesTable;

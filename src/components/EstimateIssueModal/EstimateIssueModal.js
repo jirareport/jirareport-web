@@ -1,30 +1,34 @@
 import React from "react";
 
-import ReactModal from "react-modal";
+import PropTypes from "prop-types";
 
 import { Button } from "components/ui";
-import { ChangelogTable } from "components";
+import { ChangelogTable, ImpedimentHistoryTable } from "components";
+import { Modal, ModalContent, ModalFooter, ModalHeader, ModalSection } from "components/Modal";
 
-const EstimateIssueModal = ({ estimate, handleClose }) => {
-    if (!estimate) {
-        return null;
-    }
+const EstimateIssueModal = ({ estimate, board, handleClose }) => estimate ?
+    <Modal isOpen closeModal={handleClose}>
+        <ModalHeader title={estimate.key}/>
 
-    return <ReactModal isOpen={true}
-                       onRequestClose={handleClose}
-                       className="modal"
-                       overlayClassName="modal-overlay">
-        <div className="modal-header">
-            <h5>{estimate.key}</h5>
-        </div>
-        <div className="modal-content">
-            <h5 className="modal__section-header">Lead Time Por Coluna</h5>
-            <ChangelogTable changelog={estimate.changelog}/>
-        </div>
-        <div className="modal-footer">
+        <ModalContent>
+            <ModalSection title="Lead Time Por Coluna">
+                <ChangelogTable changelog={estimate.changelog}/>
+            </ModalSection>
+
+            {board.feature.impediment && <ModalSection title="Histórico de Impedimentos">
+                <ImpedimentHistoryTable impedimentHistory={estimate.impedimentHistory}/>
+            </ModalSection>}
+        </ModalContent>
+
+        <ModalFooter>
             <Button onClick={handleClose}>Fechar</Button>
-        </div>
-    </ReactModal>;
+        </ModalFooter>
+    </Modal> : <></>;
+
+EstimateIssueModal.propTypes = {
+    board: PropTypes.any.isRequired,
+    estimate: PropTypes.any.isRequired,
+    handleClose: PropTypes.func.isRequired
 };
 
 export default EstimateIssueModal;

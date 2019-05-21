@@ -214,6 +214,7 @@ class EstimateIssueTable extends Component {
             />
 
             <EstimateIssueModal estimate={estimateDetailed}
+                                board={board}
                                 handleClose={this.closeDetailsModal}/>
         </Panel>;
     }
