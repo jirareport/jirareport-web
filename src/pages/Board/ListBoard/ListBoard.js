@@ -161,7 +161,7 @@ class ListBoard extends Component {
                 {boards.content.map(board =>
                     <CardBoard key={board.id}
                                board={board}
-                               refreshBoards={() => this.retrieveBoards({})}/>
+                               refreshBoards={() => this.retrieveBoardsByQueryParams()}/>
                 )}
 
                 {boards.numberOfElements === 0 && <EmptyBoardAlert/>}
