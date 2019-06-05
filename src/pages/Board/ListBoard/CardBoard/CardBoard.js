@@ -44,6 +44,23 @@ class CardBoard extends Component {
         }
     };
 
+    copyBoard = async () => {
+        const { board } = this.props;
+
+        try {
+            await HttpService.post("/boards", {}, {
+                params: {
+                    boardIdToClone: board.id
+                }
+            });
+
+            NotificationService.notifySuccess("Board duplicado com sucesso");
+            this.props.refreshBoards();
+        } catch (e) {
+            NotificationService.notifyError("Falha ao duplicar o board");
+        }
+    };
+
     render() {
         const { board, userConfig } = this.props;
 
@@ -66,6 +83,11 @@ class CardBoard extends Component {
                         </li>
                         <li>
                             <Link to={`/boards/${board.id}/holidays`}>Feriados</Link>
+                        </li>
+                        <li>
+                            <Button link onClick={this.copyBoard}>
+                                Duplicar
+                            </Button>
                         </li>
                         {userConfig.username === board.owner && <li>
                             <Button link onClick={this.deleteBoard}>
