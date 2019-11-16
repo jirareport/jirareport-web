@@ -94,12 +94,11 @@ class ListIssuePeriods extends Component {
             if (response.status === 400) {
                 const { data } = response;
 
-                if (data["validRange"]) {
-                    NotificationService.notifyError(data["validRange"]);
-                }
-
-                if (data["startDateIsBeforeEndDate"]) {
-                    NotificationService.notifyError(data["startDateIsBeforeEndDate"]);
+                for (let [key, value] of Object.entries(data)) {
+                    value.forEach(error => {
+                        console.log(`${key} => ${value}`);
+                        NotificationService.notifyError(error);
+                    })
                 }
 
                 this.setState({

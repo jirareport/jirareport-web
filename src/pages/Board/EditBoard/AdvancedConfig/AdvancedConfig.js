@@ -80,6 +80,14 @@ export default ({ loading, board, issueTypes, changeValue, customFields, statuse
         </Col>
 
         <Col s={12}>
+            <Checkbox label="Usa a última ocorrência ao calcular o Lead Time?"
+                      value={board.useLastOccurrenceWhenCalculateLeadTime}
+                      name="useLastOccurrenceWhenCalculateLeadTime"
+                      onChange={e => changeValue("useLastOccurrenceWhenCalculateLeadTime", e.target.checked)}/>
+        </Col>
+
+
+        <Col s={12}>
             <Select value={board.impedimentType}
                     label="Tipo De Impedimento"
                     onChange={selected => changeValue("impedimentType", (selected || {}).value)}
