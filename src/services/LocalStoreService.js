@@ -21,7 +21,7 @@ export default {
     },
     cleanState: () => {
         try {
-            localStorage.removeItem(key);
+            localStorage.clear();
         } catch {
         }
     }
