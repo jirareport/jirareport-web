@@ -5,6 +5,7 @@ import { AlertService, NotificationService } from "services";
 
 import store from "stores/store";
 import { authActions } from "stores/ducks/auth";
+import LocalStoreService from "services/LocalStoreService";
 
 const { REACT_APP_API_URL: API_URL } = process.env;
 
@@ -27,6 +28,7 @@ instance.interceptors.response.use(
                 AlertService.internalServerError((response.data || {}).traceId);
             } else if (response.status === 401) {
                 NotificationService.notifyError("Falha ao realizar autenticação");
+                LocalStoreService.cleanState();
                 store.dispatch(authActions.logout());
             }
         }

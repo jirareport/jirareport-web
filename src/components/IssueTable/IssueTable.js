@@ -132,13 +132,11 @@ class IssueTable extends Component {
                            {
                                value: "startDate",
                                label: "Início",
-                               small: true,
                                sort: true
                            },
                            {
                                value: "endDate",
                                label: "Fim",
-                               small: true,
                                sort: true
                            },
                            {
