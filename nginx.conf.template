@@ -1,0 +1,19 @@
+server {
+    listen 80;
+
+    location ~ "/health" {
+        default_type "application/json";
+        return 200 '{"status":"UP"}';
+    }
+
+    location ~ "^/jirareport-api/(.*)$" {
+        rewrite ^/jirareport-api/(.*)$ /$1 break;
+        proxy_pass ${JIRAREPORT_API_URL};
+    }
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files ${DOLLAR}uri ${DOLLAR}uri/ /index.html =404;
+    }
+}
