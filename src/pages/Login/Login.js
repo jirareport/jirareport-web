@@ -37,7 +37,14 @@ class Login extends Component {
 
             NotificationService.notifySuccess("Login realizado com sucesso");
         } catch (e) {
-            NotificationService.notifyError("Usuário e/ou senha inválido(s)");
+            const response = e.response;
+            const reason = response.headers['x-auth-fail-reason'];
+
+            if (reason) {
+                NotificationService.notifyError(reason);
+            } else {
+                NotificationService.notifyError("Usuário e/ou senha inválido(s)");
+            }
         } finally {
             this.setState({
                 isLoading: false
