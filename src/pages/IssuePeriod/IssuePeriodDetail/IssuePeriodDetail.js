@@ -12,7 +12,7 @@ import {
     PageHeader,
     Sidebar,
     When,
-    AvgColumnTimeTable
+    ColumnTimeAverageTable
 } from "components";
 
 class IssuePeriodDetail extends Component {
@@ -44,7 +44,7 @@ class IssuePeriodDetail extends Component {
                 throughputBySystem: {},
                 leadTimeByProject: {},
                 throughputByProject: {},
-                columnTimeAvg: [],
+                columnTimeAverages: [],
                 leadTimeCompareChart: {},
                 dynamicCharts: []
             },
@@ -283,7 +283,7 @@ class IssuePeriodDetail extends Component {
                     </When>
                     <When active="Média De Tempo Por Coluna">
                         <Panel title="Média De Tempo Por Coluna" loading={isLoading}>
-                            <AvgColumnTimeTable columnTimeAvg={issuePeriod.detail.columnTimeAvg}/>
+                            <ColumnTimeAverageTable data={issuePeriod.detail.columnTimeAverages}/>
                         </Panel>
                     </When>
                     <When active="Lead Times">

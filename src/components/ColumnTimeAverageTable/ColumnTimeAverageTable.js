@@ -4,8 +4,8 @@ import * as PropTypes from "prop-types";
 
 import { Table } from "components/ui";
 
-const AvgColumnTimeTable = ({ columnTimeAvg }) =>
-    <Table data={columnTimeAvg}
+const ColumnTimeAverageTable = ({ data }) =>
+    <Table data={data}
            rows={[
                {
                    label: "Coluna",
@@ -13,13 +13,13 @@ const AvgColumnTimeTable = ({ columnTimeAvg }) =>
                },
                {
                    label: "Lead Time",
-                   value: it => it.avgTime.toFixed(2)
+                   value: it => it.averageTime.toFixed(2)
                },
            ]}
            emptyMessage="Nenhuma informação encontrada."/>;
 
-AvgColumnTimeTable.propTypes = {
-    columnTimeAvg: PropTypes.array
+ColumnTimeAverageTable.propTypes = {
+    data: PropTypes.array
 };
 
-export default AvgColumnTimeTable;
+export default ColumnTimeAverageTable;

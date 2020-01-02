@@ -4,7 +4,7 @@ import { HttpService, NotificationService } from "services";
 import moment from "moment/moment";
 
 import {
-    AvgColumnTimeTable,
+    ColumnTimeAverageTable,
     CardNumber,
     Chart,
     Choose,
@@ -43,7 +43,6 @@ class ListIssue extends Component {
             leadTime: 0,
             throughput: 0,
             issues: [],
-            weeklyThroughput: {},
             charts: {
                 histogram: {},
                 leadTimeByType: {},
@@ -56,10 +55,11 @@ class ListIssue extends Component {
                 throughputBySystem: {},
                 leadTimeByProject: {},
                 throughputByProject: {},
-                columnTimeAvg: [],
                 leadTimeCompareChart: {},
                 dynamicCharts: [],
-            }
+            },
+            columnTimeAverages: [],
+            weeklyThroughput: {}
         },
         filterKeys: [],
         issueFilter: {
@@ -420,7 +420,7 @@ class ListIssue extends Component {
                     </When>
                     <When active="Média De Tempo Por Coluna">
                         <Panel title="Média De Tempo Por Coluna" loading={isLoading}>
-                            <AvgColumnTimeTable columnTimeAvg={sandbox.charts.columnTimeAvg}/>
+                            <ColumnTimeAverageTable data={sandbox.columnTimeAverages}/>
                         </Panel>
                     </When>
                     <When active="Throughput Semanal">
