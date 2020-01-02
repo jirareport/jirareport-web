@@ -14,7 +14,7 @@ import Histogram from "components/Histogram/Histogram";
 import CardNumber from "components/CardNumber/CardNumber";
 import IssueTable from "components/IssueTable/IssueTable";
 import IssueModal from "components/IssueModal/IssueModal";
-import AvgColumnTimeTable from "components/AvgColumnTimeTable/AvgColumnTimeTable";
+import ColumnTimeAverageTable from "components/ColumnTimeAverageTable/ColumnTimeAverageTable";
 import ChangelogTable from "components/ChangelogTable/ChangelogTable";
 import EstimateIssueTable from "components/EstimateIssueTable/EstimateIssueTable";
 import EstimateIssueModal from "components/EstimateIssueModal/EstimateIssueModal";
@@ -40,7 +40,7 @@ export {
     CardNumber,
     IssueTable,
     IssueModal,
-    AvgColumnTimeTable,
+    ColumnTimeAverageTable,
     ChangelogTable,
     EstimateIssueTable,
     EstimateIssueModal,
