@@ -92,18 +92,7 @@ class ListIssuePeriods extends Component {
             NotificationService.notifySuccess("Período inserido com sucesso");
         } catch ({ response }) {
             if (response.status === 400) {
-                const { data } = response;
-
-                for (let [key, value] of Object.entries(data)) {
-                    value.forEach(error => {
-                        console.log(`${key} => ${value}`);
-                        NotificationService.notifyError(error);
-                    })
-                }
-
-                this.setState({
-                    errors: response.data
-                });
+                this.notifyCreateIssuePeriodError(response);
             } else {
                 NotificationService.notifyError("Falha ao cadastrar período");
             }
@@ -154,13 +143,30 @@ class ListIssuePeriods extends Component {
 
             this.retrieveIssuePeriods(board.id);
             NotificationService.notifySuccess("Período atualizado com sucesso");
-        } catch (error) {
-            NotificationService.notifyError("Falha ao atualizar o período");
+        } catch ({ response }) {
+            if (response.status === 400) {
+                this.notifyCreateIssuePeriodError(response);
+            } else {
+                NotificationService.notifyError("Falha ao cadastrar período");
+            }
         } finally {
             this.setState({
                 isLoading: false
             });
         }
+    };
+
+    notifyCreateIssuePeriodError = async ({ data }) => {
+        for (let [key, value] of Object.entries(data)) {
+            value.forEach(error => {
+                console.log(`${key} => ${value}`);
+                NotificationService.notifyError(error);
+            });
+        }
+
+        this.setState({
+            errors: data
+        });
     };
 
     render() {
