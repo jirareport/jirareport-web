@@ -2,8 +2,9 @@ import React from "react";
 
 import classnames from 'classnames';
 import './IssueProgression.scss';
+import validations from "validators/validations";
 
-const IssueProgression = ({ data }) =>
+const IssueProgressionTable = ({ data }) =>
     <table className="centered issue-progression__table">
         <thead>
         <tr>
@@ -28,5 +29,10 @@ const IssueProgression = ({ data }) =>
         )}
         </tbody>
     </table>;
+
+const IssueProgression = ({ data }) =>
+    validations.isEmptyObject(data)  || validations.isEmptyObject(data.issues)?
+        <div className="center-align"><h5>Nenhuma informação encontrada.</h5></div> :
+        <IssueProgressionTable data={data}/>;
 
 export default IssueProgression;

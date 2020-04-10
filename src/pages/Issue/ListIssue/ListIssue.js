@@ -12,7 +12,8 @@ import {
     IssueTable,
     PageHeader,
     Sidebar,
-    When
+    When,
+    IssueProgression
 } from "components";
 import { Col, Panel, Row } from "components/ui";
 import ListIssueFilters from "pages/Issue/ListIssue/ListIssueFilters/ListIssueFilters";
@@ -57,6 +58,7 @@ class ListIssue extends Component {
                 throughputByProject: {},
                 leadTimeCompareChart: {},
                 dynamicCharts: [],
+                issueProgression: {}
             },
             columnTimeAverages: [],
             weeklyThroughput: {}
@@ -289,6 +291,9 @@ class ListIssue extends Component {
                 name: "Throughput Semanal"
             },
             {
+                name: "Progressão das histórias"
+            },
+            {
                 name: "Lead Times",
                 active: board.feature.leadTimes
             },
@@ -438,6 +443,11 @@ class ListIssue extends Component {
                                title="Lead Times"
                                key="lead-time-compare-chart"
                                data={sandbox.charts.leadTimeCompareChart}/>
+                    </When>
+                    <When active="Progressão das histórias">
+                        <Panel title="Progressão das histórias" loading={isLoading}>
+                            <IssueProgression data={sandbox.charts.issueProgression}/>
+                        </Panel>
                     </When>
                     {board.feature.dynamicField && sandbox.charts.dynamicCharts.map(dynamicChart =>
                         <Fragment key={dynamicChart.name}>
