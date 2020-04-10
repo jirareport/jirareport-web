@@ -12,7 +12,8 @@ import {
     PageHeader,
     Sidebar,
     When,
-    ColumnTimeAverageTable
+    ColumnTimeAverageTable,
+    IssueProgression
 } from "components";
 
 class IssuePeriodDetail extends Component {
@@ -46,7 +47,8 @@ class IssuePeriodDetail extends Component {
                 throughputByProject: {},
                 columnTimeAverages: [],
                 leadTimeCompareChart: {},
-                dynamicCharts: []
+                dynamicCharts: [],
+                issueProgression: {}
             },
             issues: [],
         },
@@ -163,6 +165,9 @@ class IssuePeriodDetail extends Component {
             {
                 name: "Lead Times",
                 active: board.feature.leadTimes
+            },
+            {
+                name: "Progressão das histórias"
             },
             ...(board.feature.dynamicField ? issuePeriod.detail.dynamicCharts.flatMap(dynamicFieldConfig => [
                 {
@@ -293,6 +298,11 @@ class IssuePeriodDetail extends Component {
                                title="Lead Times"
                                key="lead-time-compare-chart"
                                data={issuePeriod.detail.leadTimeCompareChart}/>
+                    </When>
+                    <When active="Progressão das histórias">
+                        <Panel title="Progressão das histórias" loading={isLoading}>
+                            <IssueProgression data={issuePeriod.detail.issueProgression}/>
+                        </Panel>
                     </When>
                     {board.feature.dynamicField && issuePeriod.detail.dynamicCharts.map(dynamicChart =>
                         <Fragment key={dynamicChart.name}>
