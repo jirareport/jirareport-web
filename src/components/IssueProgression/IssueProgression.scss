@@ -1,0 +1,44 @@
+.issue-progression {
+  &__table {
+    display: block;
+    overflow-x: auto;
+
+    & thead {
+      & tr {
+        border: 0;
+
+        & th {
+          border: 0;
+          color: rgba(0, 0, 0, 0.87);
+          padding-bottom: 5px;
+
+          &::after {
+            border: 0;
+          }
+        }
+      }
+    }
+
+
+    & tbody {
+      & tr {
+        border-bottom: 5px solid #fff;
+
+        & td {
+          border: 0;
+          border-radius: 0;
+          padding: 3px 8px;
+          white-space: nowrap;
+          color: #FFFFFF;
+          font-weight: 500;
+        }
+      }
+    }
+
+  }
+
+  &__in-progress {
+    background: rgb(33, 150, 243);
+  }
+
+}

@@ -21,6 +21,7 @@ import EstimateIssueModal from "components/EstimateIssueModal/EstimateIssueModal
 import ImpedimentHistoryTable from "components/ImpedimentHistoryTable/ImpedimentHistoryTable";
 import DueDateHistoryTable from "components/DueDateHistoryTable/DueDateHistoryTable";
 import LeadTimesTable from "components/LeadTimesTable/LeadTimesTable";
+import IssueProgression from "components/IssueProgression/IssueProgression";
 
 export {
     Footer,
@@ -46,5 +47,6 @@ export {
     EstimateIssueModal,
     ImpedimentHistoryTable,
     DueDateHistoryTable,
-    LeadTimesTable
+    LeadTimesTable,
+    IssueProgression
 };
