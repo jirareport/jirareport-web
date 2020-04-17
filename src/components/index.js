@@ -22,6 +22,7 @@ import ImpedimentHistoryTable from "components/ImpedimentHistoryTable/Impediment
 import DueDateHistoryTable from "components/DueDateHistoryTable/DueDateHistoryTable";
 import LeadTimesTable from "components/LeadTimesTable/LeadTimesTable";
 import IssueProgression from "components/IssueProgression/IssueProgression";
+import IssueTypePerformanceCompare from "components/IssueTypePerformanceCompare/IssueTypePerformanceCompare";
 
 export {
     Footer,
@@ -48,5 +49,6 @@ export {
     ImpedimentHistoryTable,
     DueDateHistoryTable,
     LeadTimesTable,
-    IssueProgression
+    IssueProgression,
+    IssueTypePerformanceCompare
 };
