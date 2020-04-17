@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { AlertService, HttpService, NotificationService } from "services";
 import moment from "moment";
 
-import { Chart, Choose, PageHeader, Sidebar, When } from "components";
+import { Chart, Choose, PageHeader, Sidebar, When, IssueTypePerformanceCompare } from "components";
 import { Button, Col, Link, Panel, Row, Table } from "components/ui";
 import CreateIssuePeriodForm from "./CreateIssuePeriodForm/CreateIssuePeriodForm";
 
@@ -26,6 +26,7 @@ class ListIssuePeriods extends Component {
             charts: {
                 leadTime: {},
                 throughput: {},
+                issueTypePerformanceCompareChart: {},
                 throughputByEstimate: {},
                 leadTimeCompareChart: {}
             }
@@ -182,6 +183,9 @@ class ListIssuePeriods extends Component {
                 name: "Throughput",
             },
             {
+                name: "Performance Por Tipo",
+            },
+            {
                 name: "Throughput Por Estimativa",
                 active: board.feature.estimate
             },
@@ -269,6 +273,11 @@ class ListIssuePeriods extends Component {
                                beginAtZero
                                key="throughput-chart"
                                data={issuePeriods.charts.throughput}/>
+                    </When>
+
+                    <When active="Performance Por Tipo">
+                        <IssueTypePerformanceCompare loading={isLoading}
+                                                     data={issuePeriods.charts.issueTypePerformanceCompareChart}/>
                     </When>
 
                     <When active="Throughput Por Estimativa">
