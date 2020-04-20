@@ -124,4 +124,39 @@ export default ({ loading, board, issueTypes, changeValue, customFields, statuse
                               value={board.waitingColumns}
                               suggestions={statuses}/>
 
+        <Col s={12}>
+            <Select value={board.issuePeriodNameFormat}
+                    label="Nomenclatura para períodos mensais"
+                    onChange={selected => changeValue("issuePeriodNameFormat", (selected || {}).value)}
+                    options={[
+                        {
+                            label: "[Data inicial - Data Final]. Ex: [01/01/2020 - 31/01/2020]",
+                            value: "INITIAL_AND_FINAL_DATE"
+                        },
+                        {
+                            label: "Nome do mês. small. Ex: Janeiro",
+                            value: "MONTH"
+                        },
+                        {
+                            label: "Nome do mês / Ano. Ex: Janeiro/2020",
+                            value: "MONTH_AND_YEAR"
+                        },
+                        {
+                            label: "Nome do mês / Ano abreviado. Ex: Janeiro/20",
+                            value: "MONTH_AND_ABBREVIATED_YEAR"
+                        },
+                        {
+                            label: "Nome do mês abreviado. Ex: Jan",
+                            value: "ABBREVIATED_MONTH"
+                        },
+                        {
+                            label: "Nome do mês abreviado / Ano. Ex: Jan/2020",
+                            value: "ABBREVIATED_MONTH_AND_YEAR"
+                        },
+                        {
+                            label: "Nome do mês abreviado / Ano abreviado. Ex: Jan/20",
+                            value: "ABBREVIATED_MONTH_AND_ABBREVIATED_YEAR"
+                        }
+                    ]}/>
+        </Col>
     </Panel>;

@@ -217,8 +217,8 @@ class ListIssuePeriods extends Component {
                             <Table data={issuePeriods.periods}
                                    rows={[
                                        {
-                                           label: "ID",
-                                           value: "dates"
+                                           label: "Período",
+                                           value: "name"
                                        },
                                        {
                                            label: "Lead Time",
