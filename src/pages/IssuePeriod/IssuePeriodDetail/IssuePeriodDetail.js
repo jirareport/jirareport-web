@@ -32,6 +32,7 @@ class IssuePeriodDetail extends Component {
         },
         issuePeriod: {
             detail: {
+                name: "",
                 leadTime: 0,
                 throughput: 0,
                 histogram: {},
@@ -181,7 +182,7 @@ class IssuePeriodDetail extends Component {
 
         return <Row>
             <Col s={12}>
-                <PageHeader title={`Detalhes do Período ${issuePeriod.detail.dates}`} small={board.name}/>
+                <PageHeader title={`Detalhes do Período - ${issuePeriod.detail.name}`} small={board.name}/>
             </Col>
 
             <Col s={12}>
