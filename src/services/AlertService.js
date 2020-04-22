@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
-export default {
-    confirmRemove: () => {
+const AlertService = {
+    confirmRemove() {
         return Swal.fire({
             type: "warning",
             title: "Tem certeza?",
@@ -15,7 +15,8 @@ export default {
             buttonsStyling: false
         }).then(result => result.value);
     },
-    internalServerError: traceId => {
+
+    internalServerError(traceId) {
         return Swal.fire({
             title: "Ocorreu um erro interno, tente novamente mais tarde.",
             html: ` <h5>Para ajudar a investigar o problema envie <strong>"${traceId}"</strong> para um administrador.</h5> `,
@@ -28,3 +29,5 @@ export default {
     }
 };
 
+
+export default AlertService;

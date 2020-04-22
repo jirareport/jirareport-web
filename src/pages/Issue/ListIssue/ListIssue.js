@@ -65,8 +65,8 @@ class ListIssue extends Component {
         },
         filterKeys: [],
         issueFilter: {
-            startDate: null,
-            endDate: null
+            startDate: moment().subtract(3, 'months').startOf("month").format("DD/MM/YYYY"),
+            endDate: moment().endOf("month").format("DD/MM/YYYY")
         },
         sortOptions: {
             field: "key",

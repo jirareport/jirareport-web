@@ -86,7 +86,7 @@ class CreateLeadTimeConfig extends Component {
         return <>
             <PageHeader title="Nova Configuração de Lead Time" small={board.name}/>
 
-            <Panel title="Nova Configuração de lead Time" loading={isLoading} actions={
+            <Panel title="Nova Configuração de Lead Time" loading={isLoading} actions={
                 <Button type="submit" onClick={this.handleSubmit}>Salvar</Button>
             }>
                 <Row>

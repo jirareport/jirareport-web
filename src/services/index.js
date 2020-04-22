@@ -4,6 +4,8 @@ import FilterService from "./FilterService";
 import HttpService from "./HttpService";
 import LocalStoreService from "./LocalStoreService";
 import NotificationService from "./NotificationService";
+import BoardService from "./BoardService";
+import IssuePeriodService from "./IssuePeriodService";
 
 export {
     AlertService,
@@ -11,5 +13,7 @@ export {
     FilterService,
     HttpService,
     LocalStoreService,
-    NotificationService
+    NotificationService,
+    BoardService,
+    IssuePeriodService
 };

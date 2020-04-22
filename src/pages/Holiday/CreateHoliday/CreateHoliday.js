@@ -61,9 +61,9 @@ class CreateHoliday extends Component {
         const { holiday, errors } = this.state;
 
         return <>
-            <PageHeader title="Novo feriado"/>
+            <PageHeader title="Novo Feriado"/>
 
-            <Panel title="Novo feriado" actions={
+            <Panel title="Novo Feriado" actions={
                 <Button onClick={this.handleSubmit}>Salvar</Button>
             }>
                 <Row>
