@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { AlertService, HttpService, NotificationService } from "services";
 import queryString from "query-string";
 
-import { Button, Link, Pagination, Panel, Table } from "components/ui";
+import { Button, Link, Panel, PagedTable } from "components/ui";
 import { PageHeader } from "components";
 
 import "./ListHolidays.scss";
@@ -135,28 +135,27 @@ class ListHolidays extends Component {
             }/>
 
             <Panel title="Feriados" loading={isLoading}>
-                <Table data={holidays.content}
-                       rows={[
-                           {
-                               label: "Data",
-                               value: "date"
-                           },
-                           {
-                               label: "Descrição",
-                               value: "description"
-                           }
-                       ]}
-                       actions={holiday => [
-                           <Button small type="button" onClick={() => this.deleteHoliday(holiday.id)}>
-                               Remover
-                           </Button>,
-                           <Link small to={`/boards/${board.id}/holidays/${holiday.id}/edit`}>
-                               Alterar
-                           </Link>
-                       ]}
-                       emptyMessage="Nenhum feriado cadastrado."/>
-
-                <Pagination data={holidays} goToPage={this.goToPage}/>
+                <PagedTable data={holidays}
+                            rows={[
+                                {
+                                    label: "Data",
+                                    value: "date"
+                                },
+                                {
+                                    label: "Descrição",
+                                    value: "description"
+                                }
+                            ]}
+                            actions={holiday => [
+                                <Button small type="button" onClick={() => this.deleteHoliday(holiday.id)}>
+                                    Remover
+                                </Button>,
+                                <Link small to={`/boards/${board.id}/holidays/${holiday.id}/edit`}>
+                                    Alterar
+                                </Link>
+                            ]}
+                            emptyMessage="Nenhum feriado cadastrado."
+                            goToPage={this.goToPage}/>
             </Panel>
         </>;
     }

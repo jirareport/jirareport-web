@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Table.scss";
 
-export default ({ data, rows, actions, emptyMessage }) => {
+const Table = ({ data, rows, actions, emptyMessage }) => {
     if (!data || data.length === 0) {
         return <div className="center-align">
             <h5>{emptyMessage}</h5>
@@ -53,3 +53,5 @@ export default ({ data, rows, actions, emptyMessage }) => {
         </tbody>
     </table>;
 };
+
+export default Table
