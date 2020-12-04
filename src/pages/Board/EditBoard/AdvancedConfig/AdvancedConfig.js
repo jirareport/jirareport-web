@@ -1,7 +1,7 @@
 import React from "react";
 
 import { MultipleSuggestInput } from "components";
-import { Checkbox, Col, Panel, Select } from "components/ui";
+import { Checkbox, Col, InputField, Panel, Row, Select } from "components/ui";
 
 export default ({ loading, board, issueTypes, changeValue, customFields, statuses }) =>
     <Panel collapsible
@@ -158,5 +158,14 @@ export default ({ loading, board, issueTypes, changeValue, customFields, statuse
                             value: "ABBREVIATED_MONTH_AND_ABBREVIATED_YEAR"
                         }
                     ]}/>
+        </Col>
+        <Col s={12}>
+            <Row>
+                <InputField s={12}
+                            name="additionalFilter"
+                            label="Filtro adicional"
+                            onChange={e => changeValue("additionalFilter", e.target.value)}
+                            value={board.additionalFilter || ""}/>
+            </Row>
         </Col>
     </Panel>;
