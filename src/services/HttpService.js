@@ -7,12 +7,14 @@ import store from "stores/store";
 import { authActions } from "stores/ducks/auth";
 import LocalStoreService from "services/LocalStoreService";
 
+import {getLang} from 'i18n/i18n'
+
 const { REACT_APP_API_URL: API_URL } = process.env;
 
 const instance = axios.create({
     baseURL: API_URL,
     headers: {
-        "Accept-Language": LocalStoreService.getI18n() || 'en'
+        "Accept-Language": getLang()
     },
     paramsSerializer: params => querystring.stringify(params)
 });

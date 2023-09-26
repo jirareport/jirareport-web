@@ -24,12 +24,20 @@ function _accessByString(o, s) {
 }
 
 function t(key) {
-    const lang = langs[LocalStoreService.getI18n() || 'en']
+    const lang = langs[getLang()]
     const result = _accessByString(lang, key)
     if (result) {
         return result
     }
     return `{${key}}`;
+}
+
+export function getLang() {
+    return LocalStoreService.getI18n() || 'en'
+}
+
+export function setLang(lang) {
+    LocalStoreService.setI18n(lang)
 }
 
 export default t

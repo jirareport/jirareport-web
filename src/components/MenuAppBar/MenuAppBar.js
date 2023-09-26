@@ -6,11 +6,12 @@ import { authActions } from "stores/ducks/auth";
 import M from "materialize-css";
 import { Link } from "react-router-dom";
 
-import { AuthService, NotificationService, LocalStoreService } from "services";
+import { AuthService, NotificationService } from "services";
+import { getLang, setLang } from "i18n/i18n";
 
 class MenuAppBar extends Component {
     state = {
-        lang: LocalStoreService.getI18n() || 'en'
+        lang: getLang()
     }
 
     componentDidMount() {
@@ -26,7 +27,7 @@ class MenuAppBar extends Component {
     };
 
     handleLangChange = lang => {
-        LocalStoreService.setI18n(lang)
+        setLang(lang)
         this.setState({
             lang
         });
