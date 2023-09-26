@@ -29,7 +29,8 @@ class MenuAppBar extends Component {
         LocalStoreService.setI18n(lang)
         this.setState({
             lang
-        })
+        });
+        window.location.reload();
     }
 
     render() {
