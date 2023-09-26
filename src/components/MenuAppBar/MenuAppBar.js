@@ -6,9 +6,12 @@ import { authActions } from "stores/ducks/auth";
 import M from "materialize-css";
 import { Link } from "react-router-dom";
 
-import { AuthService, NotificationService } from "services";
+import { AuthService, NotificationService, LocalStoreService } from "services";
 
 class MenuAppBar extends Component {
+    state = {
+        lang: LocalStoreService.getI18n() || 'en'
+    }
 
     componentDidMount() {
         const dropdown = document.querySelectorAll(".dropdown-trigger");
@@ -21,6 +24,13 @@ class MenuAppBar extends Component {
 
         NotificationService.notifySuccess("Logout realizado com sucesso");
     };
+
+    handleLangChange = lang => {
+        LocalStoreService.setI18n(lang)
+        this.setState({
+            lang
+        })
+    }
 
     render() {
         const { userConfig } = this.props;
@@ -43,6 +53,22 @@ class MenuAppBar extends Component {
                                 </li>
                                 <li>
                                     <Link onClick={this.handleLogout} to="#">Sair</Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul className="right hide-on-med-and-down">
+                        <li>
+                            <Link to="#" className="dropdown-trigger" data-target="language-dropdown">
+                                {this.state.lang}
+                                <i className="material-icons right">arrow_drop_down</i>
+                            </Link>
+                            <ul id="language-dropdown" className="dropdown-content">
+                                <li>
+                                    <Link onClick={() => this.handleLangChange('en')} to="#">EN</Link>
+                                </li>
+                                <li>
+                                    <Link onClick={() => this.handleLangChange('pt_BR')} to="#">PT-BR</Link>
                                 </li>
                             </ul>
                         </li>

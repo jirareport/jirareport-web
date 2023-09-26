@@ -12,7 +12,7 @@ const { REACT_APP_API_URL: API_URL } = process.env;
 const instance = axios.create({
     baseURL: API_URL,
     headers: {
-        "Accept-Language": "pt-BR"
+        "Accept-Language": LocalStoreService.getI18n() || 'en'
     },
     paramsSerializer: params => querystring.stringify(params)
 });
