@@ -9,6 +9,8 @@ import { Button, Col, InputField, Link, Pagination, Panel, Preloader, Row, Selec
 import CardBoard from "./CardBoard/CardBoard";
 import EmptyBoardAlert from "./EmptyBoardAlert/EmptyBoardAlert";
 
+import t from "i18n/i18n";
+
 class ListBoard extends Component {
     state = {
         boards: {
@@ -59,7 +61,7 @@ class ListBoard extends Component {
         const { data } = await HttpService.get("/boards/owners");
         const owners = [
             {
-                label: "Todos",
+                label: t('boards.allOwners'),
                 value: "all"
             },
             ...data.map(owner => ({
@@ -127,14 +129,14 @@ class ListBoard extends Component {
         return <Row>
             <Col s={12}>
                 <PageHeader title="Boards" action={
-                    <Link to="/boards/new">Novo board</Link>
+                    <Link to="/boards/new">{t('boards.new')}</Link>
                 }/>
             </Col>
 
             <Col s={12}>
-                <Panel collapsible defaultClose title="Filtro" actions={
+                <Panel collapsible defaultClose title={t('boards.filter.title')} actions={
                     <Button type="submit" onClick={this.handleFilter}>
-                        Filtrar
+                        {t('boards.filter.button')}
                     </Button>
                 }>
                     <Row>
@@ -142,12 +144,12 @@ class ListBoard extends Component {
                                     name="name"
                                     onChange={e => this.changeFilterValue("name", e.target.value)}
                                     value={filter.name}
-                                    label="Nome"/>
+                                    label={t('boards.nameLabel')}/>
 
                         <Col s={12} l={6}>
                             <Select withoutWrapper
                                     options={owners}
-                                    label="Dono"
+                                    label={t('boards.ownerLabel')}
                                     onChange={selected => this.changeFilterValue("owner", (selected || {}).value)}
                                     value={filter.owner || userConfig.username}/>
                         </Col>

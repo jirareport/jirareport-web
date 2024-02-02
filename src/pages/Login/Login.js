@@ -10,6 +10,8 @@ import { Button, Col, InputField, Panel, Row } from "components/ui";
 
 import "./Login.scss";
 
+import t from "i18n/i18n";
+
 class Login extends Component {
     state = {
         username: "",
@@ -35,16 +37,19 @@ class Login extends Component {
 
             this.redirect();
 
-            NotificationService.notifySuccess("Login realizado com sucesso");
+            NotificationService.notifySuccess(t('login.successMessage'));
         } catch (e) {
             const response = e.response;
-            const reason = response.headers['x-auth-fail-reason'];
+            if (response) {
+                const reason = response.headers['x-auth-fail-reason'];
 
-            if (reason) {
-                NotificationService.notifyError(reason);
-            } else {
-                NotificationService.notifyError("Usuário e/ou senha inválido(s)");
-            }
+                if (reason) {
+                    NotificationService.notifyError(reason);
+                    return;
+                } 
+            }            
+            
+            NotificationService.notifyError(t('login.failureMessage'));
         } finally {
             this.setState({
                 isLoading: false
@@ -71,14 +76,14 @@ class Login extends Component {
                 <Col s={12} l={6} offsetL={3}>
                     <Panel loading={isLoading}>
                         <div className="login-panel__header-container">
-                            <h4 className="login-panel__header center-align">Login</h4>
+                            <h4 className="login-panel__header center-align">{t('login.title')}</h4>
                         </div>
 
                         <Row>
                             <InputField s={12}
                                         name="username"
                                         onChange={this.handleChange}
-                                        label="Usuário"
+                                        label={t('login.usernameLabel')}
                                         value={username}
                             />
 
@@ -86,13 +91,13 @@ class Login extends Component {
                                         type="password"
                                         name="password"
                                         onChange={this.handleChange}
-                                        label="Senha"
+                                        label={t('login.passwordLabel')}
                                         value={password}
                             />
 
                             <Col s={12}>
                                 <Button type="submit" block onClick={this.handleSubmit}>
-                                    Entrar
+                                    {t('login.submit')}
                                 </Button>
                             </Col>
                         </Row>
